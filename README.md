@@ -7,7 +7,7 @@
 
 ### 短信渠道添加
 ```text
-实现com.superaicloud.crm.commons.sms.channel.SuperChannel类
+实现com.ctr.crm.commons.sms.channel.SuperChannel类
 短信渠道配置里面添加对应渠道
 短信用户配置里面添加对应账号密码
 ``` 
