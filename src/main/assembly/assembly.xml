@@ -1,0 +1,32 @@
+<assembly>
+	<id>bin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <!-- 从目标目录拷贝文件去压缩 -->
+        <fileSet>
+        	<directory>target/classes</directory>
+        	<includes>
+                <include>application.properties</include>
+        	</includes>
+        	<outputDirectory>/config</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>target/classes</directory>
+            <includes>
+                <include>lib/*.*</include>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <!-- 从源目录拷贝文件去压缩 -->
+        <fileSet>
+            <directory>script</directory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+            <outputDirectory>/bin</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>

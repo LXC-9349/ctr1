@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Configuration status="WARN">
+	<Properties>
+        <Property name="APP_NAME">marry_crm</Property>
+        <Property name="LOG_FILE_PATH">/var/log/${APP_NAME}</Property>
+        <Property name="PATTERN_FORMAT">[%d{HH:mm:ss,SSS\} %p] %c - %m%n</Property>
+    </Properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${PATTERN_FORMAT}"/>
+		</Console>
+		<RollingFile name="memberBaseInfoAppender" fileName="${LOG_FILE_PATH}/memberbaseinfo_crm.log" filePattern="${LOG_FILE_PATH}/memberbaseinfo_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+		        <TimeBasedTriggeringPolicy interval="1"/>
+		    </Policies>
+		</RollingFile>
+		<RollingFile name="saleCaseAppender" fileName="${LOG_FILE_PATH}/salecase_crm.log" filePattern="${LOG_FILE_PATH}/salecase_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+		        <TimeBasedTriggeringPolicy interval="1"/>
+		    </Policies>
+		</RollingFile>
+		<RollingFile name="exceptionAppender" fileName="${LOG_FILE_PATH}/exception_crm.log" filePattern="${LOG_FILE_PATH}/exception_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+		        <TimeBasedTriggeringPolicy interval="1"/>
+		    </Policies>
+		</RollingFile>
+		<RollingFile name="callAppender" fileName="${LOG_FILE_PATH}/call_crm.log" filePattern="${LOG_FILE_PATH}/call_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+		        <TimeBasedTriggeringPolicy interval="1"/>
+		    </Policies>
+		</RollingFile>
+		<RollingFile name="smsAppender" fileName="${LOG_FILE_PATH}/sms_crm.log" filePattern="${LOG_FILE_PATH}/sms_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/>
+			</Policies>
+		</RollingFile>
+		<RollingFile name="allotAppender" fileName="${LOG_FILE_PATH}/allot_crm.log" filePattern="${LOG_FILE_PATH}/allot_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/>
+			</Policies>
+		</RollingFile>
+		<RollingFile name="recyclingAppender" fileName="${LOG_FILE_PATH}/recycling_crm.log" filePattern="${LOG_FILE_PATH}/recycling_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/>
+			</Policies>
+		</RollingFile>
+		<RollingFile name="approvalAppender" fileName="${LOG_FILE_PATH}/approval_crm.log" filePattern="${LOG_FILE_PATH}/approval_crm.%d{yyyyMMdd}.log">
+			<PatternLayout>
+				<pattern>[%d{dd MM yyyy HH:mm:ss,SSS\} %p] %c{2\} - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="memberBaseInfo" level="info" additivity="false">
+	      <AppenderRef ref="memberBaseInfoAppender"/>
+	    </Logger>
+		<Logger name="saleCaseInfo" level="info" additivity="false">
+	      <AppenderRef ref="saleCaseAppender"/>
+	    </Logger>
+		<Logger name="exception" level="info" additivity="false">
+	      <AppenderRef ref="exceptionAppender"/>
+	    </Logger>
+		<Logger name="call" level="info" additivity="false">
+	      <AppenderRef ref="callAppender"/>
+	    </Logger>
+		<Logger name="com.ctr.crm.commons.jdbc" level="debug" additivity="false">
+			<AppenderRef ref="console"/>
+		</Logger>
+		<Logger name="org.springframework" level="info" additivity="false">
+			<AppenderRef ref="console"/>
+		</Logger>
+		<Logger name="org.apache" level="info" additivity="false">
+			<AppenderRef ref="console"/>
+		</Logger>
+		<Logger name="springfox.documentation" level="info" additivity="false">
+			<AppenderRef ref="console"/>
+		</Logger>
+		<Logger name="sms" level="info" additivity="false">
+			<AppenderRef ref="smsAppender"/>
+		</Logger>
+		<Logger name="allot" level="info" additivity="false">
+			<AppenderRef ref="allotAppender"/>
+		</Logger>
+		<Logger name="recycling" level="info" additivity="false">
+			<AppenderRef ref="recyclingAppender"/>
+		</Logger>
+		<Logger name="approval" level="info" additivity="false">
+			<AppenderRef ref="approvalAppender"/>
+		</Logger>
+		<root level="warn">
+			<appender-ref ref="console" />
+		</root>
+	</Loggers>
+</Configuration>
